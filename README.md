@@ -18,3 +18,25 @@ This tool captures raw binary data from the network interface card (NIC), bypass
 
 ### 1. The Ethernet Frame
 The script first captures the raw frame and unpacks the first 14 bytes (The Ethernet Header).
+
+* **Destination MAC:** 6 Bytes
+* **Source MAC:** 6 Bytes
+* **EtherType:** 2 Bytes (Used to determine if the payload is IPv4, IPv6, or ARP)
+
+### 2. The IPv4 Header
+If the EtherType is `0x0800` (IPv4), the script jumps to the IP header. This requires bitwise manipulation because the "Version" and "Header Length" are packed into the same single byte.
+
+* `Version = byte >> 4` (Shift bits right to get the first 4 bits)
+* `IHL = byte & 0xF` (Mask bits to get the last 4 bits)
+
+## 💻 Usage
+
+### Prerequisites
+* Linux OS (Debian/Ubuntu/Kali)
+* Python 3.x
+* Root privileges (`sudo`)
+
+### Running the Sniffer
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/yourusername/packet-sniffer.git](https://github.com/milancristo/packet_sniffer.git)
