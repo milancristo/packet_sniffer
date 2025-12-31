@@ -39,4 +39,4 @@ If the EtherType is `0x0800` (IPv4), the script jumps to the IP header. This req
 ### Running the Sniffer
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/yourusername/packet-sniffer.git](https://github.com/milancristo/packet_sniffer.git)
+   git clone [https://github.com/milancristo/packet_sniffer.git](https://github.com/milancristo/packet_sniffer.git)
